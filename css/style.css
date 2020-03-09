@@ -1,0 +1,115 @@
+body {
+  font-family: Roboto Slab;
+  font-size: 20px;
+  background: url(..//assets/bg.jpg);
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #0971d3;
+}
+
+.container {
+  background: linear-gradient(#b6dbd2c7, #d7e8f1c7);
+  margin: auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  max-width: 500px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 100px black;
+}
+.header {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding: 0%;
+}
+
+.header img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+.header p {
+  color: aliceblue;
+  font-size: 30px;
+  text-shadow: 0 0 20px blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.list {
+  /* background: black; */
+  padding: 0;
+  margin: 0;
+}
+
+.list ul {
+  margin: 0;
+  list-style: none;
+  padding: 10%;
+  min-height: 100px;
+}
+
+.list ul li {
+  padding: 15px;
+
+  position: relative;
+  /* background: red; */
+  border-bottom: 1px solid rgba(5, 57, 117, 0.753);
+}
+
+.trash {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+.trash:hover {
+  color: red;
+}
+
+#trash {
+  display: none;
+}
+
+.list ul li p {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  left: 50px;
+  top: 15px;
+}
+
+.addTask {
+  /* display: flex; */
+  padding: 1rem;
+  text-align: center;
+  font-size: 40px;
+  border-top: 10px solid rgba(0, 13, 27, 0.53);
+}
+
+#task {
+  font-family: Roboto Slab;
+  font-size: 20px;
+  /* margin: 0.1rem 1rem; */
+  width: 90%;
+  padding: 2%;
+  border-color: rgba(0, 119, 255, 0.753);
+  border-width: 3px;
+  border-radius: 15px;
+}
+
+@media (max-width: 600px) {
+  .header p {
+    font-size: 20px;
+  }
+  .list ul li p {
+    font-size: 15px;
+  }
+  #task {
+    font-size: 15px;
+  }
+}
