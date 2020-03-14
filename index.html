@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/font-awesome.css" />
-  <link rel="stylesheet" href="css/style.css" />
+    <title>TO-DO List</title>
+  </head>
 
-  <title>TO-DO List</title>
-</head>
-
-<body>
-
-  <div class="container">
-    <div class="header"><img id="img-header" src="" alt="Tasks" />
-      <p id="date"></p>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img id="img-header" src="" alt="Tasks" />
+        <i class="fas fa-redo-alt clear"></i>
+        <p id="date"></p>
+      </div>
+      <div class="list">
+        <ul class="taskList"></ul>
+        <!-- <i class="fas fa-check-circle"></i> -->
+      </div>
+      <div class="addTask">
+        <input
+          type="text"
+          placeholder="Name a task and then, press Enter"
+          name="task"
+          id="task"
+        />
+        <!-- <i class="fas fa-plus-circle"></i> -->
+      </div>
     </div>
-    <div class="list">
-      <ul class="taskList">
 
-      </ul>
-      <!-- <i class="fas fa-check-circle"></i> -->
-    </div>
-    <div class="addTask">
-      <input type="text" placeholder="Name a task and then, press Enter" name="task" id="task" />
-      <!-- <i class="fas fa-plus-circle"></i> -->
-    </div>
-  </div>
-
-  <script src="js/script.js"></script>
-</body>
-
+    <script src="js/script.js"></script>
+  </body>
 </html>

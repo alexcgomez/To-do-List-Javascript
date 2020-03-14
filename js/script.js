@@ -2,6 +2,7 @@ const taskList = document.querySelector(".taskList");
 const inputTask = document.querySelector("#task");
 const date = document.querySelector("#date");
 const img = document.querySelector("#img-header");
+const clearButton = document.querySelector(".clear");
 
 let tasksArray = [];
 let id = 0;
@@ -13,6 +14,7 @@ let sec = "";
 // Función para eliminar tarea
 function deleteTask(taskToDelete) {
   taskList.removeChild(document.getElementById(taskToDelete.id));
+  tasksArray.splice(tasksArray.findIndex(task => task.id == taskToDelete.id), 1);
 }
 
 // Función para completar tarea
@@ -28,7 +30,6 @@ function completeTask(li, task) {
     task.completed = true;
   } else {
     li.childNodes[2].style.color = "black";
-
     li.childNodes[2].style.textDecoration = "none";
     completedButton.className = "far fa-circle done";
     completedButton.style.color = "black";
@@ -38,22 +39,23 @@ function completeTask(li, task) {
 
 // Función para añadir tarea
 function addTask(text) {
-  tasksArray.push({
+  let task = {
     text: text,
     id: id,
     completed: false
-  });
+  };
 
   let li = document.createElement("li");
   li.setAttribute("id", id);
   li.innerHTML = `<i class="far fa-circle done"></i>
             <p>${text}</p>
-            <i class="fas fa-trash-alt trash"></i>
-  `;
+            <i class="fas fa-trash-alt trash"></i>`;
   taskList.appendChild(li);
 
   // Añadimos el evento de click al boton delete generado
+
   let lastTask = document.querySelector("ul").lastChild;
+
   lastTask.lastElementChild.addEventListener("click", event => {
     deleteTask(li);
   });
@@ -61,17 +63,32 @@ function addTask(text) {
   // Añadimos el evento de click en el boton de completed
 
   lastTask.firstChild.addEventListener("click", event => {
-    completeTask(li, tasksArray[tasksArray.length - 1]);
+    completeTask(li, task);
   });
+  tasksArray.push(task);
 }
 
 // Evento que captura el valor de la tarea y se la pasa como parametro a la funcion addTask()
 document.addEventListener("keyup", event => {
-  if (event.keyCode == 13) {
+  if (event.keyCode == 13 && inputTask.value != "") {
     id++;
     addTask(inputTask.value);
     inputTask.value = "";
   }
+});
+
+// Funcion para limpiar completos
+function clearCompleted() {
+  tasksCompleted = tasksArray.filter(task => task.completed == true);
+  tasksCompleted.forEach(element => {
+    deleteTask(element);
+    console.log(`Tarea ${element.text} eliminada`);
+  });
+}
+
+// Evento boton clear
+clearButton.addEventListener("click", event => {
+  clearCompleted();
 });
 
 // Añadir fecha
